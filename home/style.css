@@ -1,0 +1,85 @@
+
+
+/* basic */
+/* head */
+header, footer{
+    height: 15vh;
+    background: rgb(83, 185, 83);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+.logo{
+    height: 7vh;
+    width: 7vh;
+    background: green;
+}
+
+/* main */
+
+main{
+    /* height: 100%; */
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+main a, main div{
+    /* all:default; */
+    display: inline-block;
+    height: 24rem;
+    width: 80%;
+    background: red;
+    margin: 1rem;
+    border-radius: .4rem;
+    position: relative;
+    overflow: hidden;
+}
+main .map img{
+    height: 100%;
+    width: 100%;
+    background: url('./img.jpg');
+    background-size: contain;
+    background-position: center;
+    /* height: 5rem; */
+    /* width: 4rem; */
+}
+main .title{
+    color: black;
+    font-size: 4rem;
+    background: red;
+    line-height: normal;
+    position: absolute;
+    top:50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+}
+/* footer */
+footer{
+    height: 20vh;
+    background: rgb(83, 185, 83);
+}
+
+.contact{
+    height: 90%;
+    width: 40%;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.contact img{
+    height: 2rem;
+    width: 2rem;
+}
+
+/* shared */
+
+/* elements */
+
+body{
+    height: 100vh;
+    margin: 0%;
+}
