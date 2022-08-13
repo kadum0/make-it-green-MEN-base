@@ -34,11 +34,12 @@ app.use("/admin",(req, res, next)=>{
             next()
         }else{
             console.log("the else one")
+            res.cookie = req.cookies.tModeAuth+ '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         }
     }else{
         ////send the cred making 
-        res.send(`    <input type="text" name="" id="em" placeholder="em">
-        <button onclick="fetch('/checkmode', {
+        res.send(`<input style='height: 4rem' type="text" name="" id="em" placeholder="em">
+        <button style='height: 4rem' onclick="fetch('/checkmode', {
             method:'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,6 +53,18 @@ app.use("/admin",(req, res, next)=>{
     }
 }, express.static("./admin"))
 
+
+app.post("/checkmode", (req, res)=>{
+    console.log("check mode .......",req.body)
+    /////check if true auth to give a set the cookie
+    if(req.body.em == process.env.MODEAUTH){
+        res.cookie("tModeAuth", process.env.MODEAUTH);
+        // res.redirect("/mode") ///make a reload instead
+        res.redirect(req.get("/admin"))
+    }else{
+        res.sendStatus(400)
+    }
+})
 
 
 app.post('/admin/makeblog', (req, res)=>{
