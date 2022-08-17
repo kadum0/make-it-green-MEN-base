@@ -15,7 +15,7 @@ header, footer{
     width: 15vh;
     border-radius: 50%;
     /* background: green; */
-    background: url('./makeitgreen-logo.jpg');
+    background: url('./public/makeitgreen-logo.jpg');
     background-size: contain;
 }
 
@@ -29,7 +29,7 @@ main{
     justify-content: space-around;
     align-items: center;
 }
-main a, main div{
+main a, main>div{
     /* all:default; */
     display: inline-block;
     height: 24rem;
@@ -60,6 +60,26 @@ main .title{
     right: 50%;
     transform: translate(50%, 50%);
 }
+main>*{
+    box-shadow: 2px 2px  rgb(83, 185, 83);
+    transition: .1s linear;
+}
+main>*:hover{
+    box-shadow: 4px 4px  rgb(83, 185, 83);
+}
+
+.map-statics .counter{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
+    background: red;
+}
+.map-statics img{
+    /* width: 3rem; */
+    height: 3rem;
+}
+
+
 /* footer */
 footer{
     height: 20vh;

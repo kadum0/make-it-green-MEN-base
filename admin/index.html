@@ -5,32 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>make it green admin</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <header>
-        <div class="logo"></div>
-        <div></div>
-        <div></div>
     </header>
     <main>
         <div class="blog-making">
-            <h4>make post (article) </h4>
-            <input type="text" placeholder="title">
-            <input type="file">
-            <textarea name="" id="" cols="30" rows="10" placeholder="..."></textarea>
+            <h2>make post (article) </h2>
+            <input type="text" placeholder="title" id="articleTitle">
+            <input type="file" id="articleImg">
+            <textarea name="" cols="30" rows="10" placeholder="..." id="articleContent"></textarea>
+            <button id="sendArticle">send article</button>
         </div>
         <div class="donor-making">
-            <h4>add donor </h4>
-            <input type="text" placeholder="donor name">
-            <input type="text" placeholder="donor website">
-            <input type="file" placeholder="donor logo">
+            <h2>add donor </h2>
+            <input type="text" placeholder="donor name" id="donorName">
+            <input type="text" placeholder="donor website" id="donorWebsite">
+            <input type="file" placeholder="donor logo" id="donorLogo">
+            <!-- <select name="" id="">
+                <option value="">partner</option>
+                <option value="">donor</option>
+            </select> -->
+            <button id="sendDonor">send donor</button>
         </div>
+
+
+
+
+
     </main>
     <footer>
-
     </footer>
+    <script src="./script.js"></script>
 </body>
 
 </html>
