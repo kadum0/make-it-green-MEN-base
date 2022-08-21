@@ -38,6 +38,10 @@ app.use('/public', express.static(__dirname + '/public-imgs'))
 // app.use(express.static(path.join(__dirname,'./public-imgs')))
 
 app.use("/", express.static("./public"))
+app.get("/map-api-key", (req, res)=>{
+    res.send({apiKey: process.env.MAPAPIKEY})
+})
+
 
 
 app.use("/admin",(req, res, next)=>{

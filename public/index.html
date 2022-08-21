@@ -7,6 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>make it green</title>
     <link rel="stylesheet" href="home.css">
+
+    <!-- leaflet cdn -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <!-- search box -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
 </head>
 
 <body>
@@ -45,40 +58,62 @@
 
 
         <div class="map">
-            <a href="https://bygreen-v.herokuapp.com">check map</a>
+            <a href="https://bygreen-v.herokuapp.com" target="_blank">check map</a>
             <div id="map"></div>
             <div class="map-statics">
-                <span class="title">map achievements and statics</span>
+                <div class="title">map achievements and statics</div>
 
-                <span class="counter greenPinCounter">
-                    <img src="./public/green.png">
-                    <h2 id="greenPinCounter">number</h2>
-                </span>
-                <span class="counter redPinCounter">
-                    <img src="./public/red.png">
-                    <h2 id="redPinCounter">number</h2>
-                </span>
-                <span class="counter yellowPinCounter">
-                    <img src="./public/yellow.png">
-                    <h2 id="yellowPinCounter">number</h2>
-                </span>
+                <div class="counter greenPinCounter">
+                    <img src="./public-imgs/green.png">
+                    <h2 id="greenPinCounter">x</h2>
+                </div>
+                <div class="counter redPinCounter">
+                    <img src="./public-imgs/red.png">
+                    <h2 id="redPinCounter">x</h2>
+                </div>
+                <div class="counter yellowPinCounter">
+                    <img src="./public-imgs/yellow.png">
+                    <h2 id="yellowPinCounter">x</h2>
+                </div>
 
             </div>
         </div>
 
         <div class="blog">
-            <a href="./blog.html">read more-></a>
-            <div class="samples">
+            <a href="./blog.html">
+                <h2 class="section-name">blog</h2>read more->
+            </a>
 
+
+            <div class="samples">
+                <div class="article">
+                    <!-- <img
+                    src="./public-imgs/articles/2022-08-13T18-10-36.547Z291772237_1020029445364998_5589885530909132849_n.jpg"> -->
+                    <img alt="">
+                    <div class="content">
+                        <h2>article title</h2>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolorum sint facilis
+                        nisi adipisci autem, itaque laborum ex placeat repudiandae!
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="donors">
-            <a href="./donors.html">read more-></a>
-            <div class="samples">
+            <a href="./donors.html">
+                <h2 class="section-name">donors</h2>read more->
+            </a>
 
+
+            <div class="samples">
+                <div class="donor">
+                    <img alt="">
+                    <h2 class="donor-name">donor name</h2>
+                </div>
             </div>
+
         </div>
+
 
         <div class="more-info">
             <div class="movement-achievements"></div>
