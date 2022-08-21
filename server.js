@@ -12,6 +12,9 @@ let { ObjectID } = require("bson")
 let fs = require("fs")
 let path = require("path")
 
+// configure some settings
+app.set('view engine', 'ejs')
+
 
 app.use(cookieParser())
 app.use(cors())    /////to remove 
@@ -181,14 +184,39 @@ app.post('/makeArticle', (req, res, next)=>{articleLink = null, next()}, artilce
 
 })
 
-app.get('/blog/:article', (req, res)=>{
+app.get('/blog/:article', async (req, res)=>{
+    console.log(req.params.article)
+    let tosearch = req.params.article
+    // req.params.article = req.params.article.replace(' ', '-')
+    // res.send('./article.html')
+    // res.sendfile('./article.html')
+
+    // res.send({'received from': req.params.article})
+    let found 
+
     mongodb.connect(process.env.MAKE, async (err, client)=>{
         let dbb = client.db()
-        let found = (await dbb.collection("posts").find().toArray()).find(e=>e.title == req.params.article)
+
+        found = await dbb.collection("articles").findOne({title:tosearch})
+        // .find(e=>e.title == req.params.article)
         console.log(found)
+
+let articleData = {}
+articleData.title = found.title
+articleData.img = found.img
+articleData.content = found.content
+
+// console.log(title)
+
+    res.render('article.ejs',{articleData})
+
 })
 })
 
+app.get('/testarticle', (req, res)=>{
+    console.log('from article template')
+    // res.send()
+})
 
 ////donors; 
 app.get("/donors", async (req, res)=>{

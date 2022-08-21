@@ -105,29 +105,36 @@ window.onload= async ()=>{
         // make objects; imgs 
 
         let articleTemp =  `
-        <div class="article">
-        <img style='background:url("${articles[0].img}")'> 
-        <div class="content">
-            <h2>${articles[0].title}</h2>
-            <p>${articles[0].content}</p>
+
+    <a href='/blog/${articles[0].title}' class='article'
+        <div>
+                <img style='background:url("${articles[0].img}")'> 
+                <div class="content">
+                    <h2>${articles[0].title}</h2>
+                    <p>${articles[0].content}</p>
+                </div>
         </div>
-    </div>
+    </a>
 
-    <div class="article">
-    <img style='background:url("${articles[1].img}")'> 
-    <div class="content">
-        <h2>${articles[1].title}</h2>
-        <p>${articles[1].content}</p>
-    </div>
-</div>
+    <a href='/blog/${articles[1].title}' class='article'
+        <div>
+                <img style='background:url("${articles[1].img}")'> 
+                <div class="content">
+                    <h2>${articles[1].title}</h2>
+                    <p>${articles[1].content}</p>
+                </div>
+        </div>
+    </a>
 
-<div class="article">
-<img style='background:url("${articles[2].img}")'> 
-<div class="content">
-    <h2>${articles[2].title}</h2>
-    <p>${articles[2].content}</p>
-</div>
-</div>
+    <a href='/blog/${articles[2].title}' class='article'
+        <div>
+                <img style='background:url("${articles[2].img}")'> 
+                <div class="content">
+                    <h2>${articles[2].title}</h2>
+                    <p>${articles[2].content}</p>
+                </div>
+        </div>
+    </a>
     `
     document.querySelector('.article-samples').innerHTML = articleTemp
 
