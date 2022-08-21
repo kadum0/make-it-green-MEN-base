@@ -33,15 +33,12 @@ cloudinary.config({
 
 
 // app.use(express.static("./public"))
-app.use('/public', express.static(__dirname + '/public'))
+app.use('/public', express.static(__dirname + '/public-imgs'))
 // app.use(express.static( __dirname +"./public-imgs"))
 // app.use(express.static(path.join(__dirname,'./public-imgs')))
 
-app.use("/", express.static("./home"))
-app.use("/map", express.static("./map"))
+app.use("/", express.static("./public"))
 
-app.use("/donorsPage", express.static("./donors"))
-app.use("/blog", express.static("./blog"))
 
 app.use("/admin",(req, res, next)=>{
     if(req.cookies.tModeAuth){

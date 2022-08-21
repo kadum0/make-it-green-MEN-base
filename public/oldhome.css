@@ -1,8 +1,8 @@
 
-
 /* basic */
-/* head */
-header, footer{
+/* header*/
+header,
+footer {
     height: 15vh;
     background: rgb(83, 185, 83);
     display: flex;
@@ -10,18 +10,43 @@ header, footer{
     align-items: center;
     padding: 0 2rem;
 }
-.logo{
+
+.logo {
     height: 15vh;
     width: 15vh;
     border-radius: 50%;
     /* background: green; */
-    background: url('./public/makeitgreen-logo.jpg');
+    background: url('./public-imgs/makeitgreen-logo.jpg');
     background-size: contain;
 }
 
+.contentLinks {
+    /* background: red; */
+}
+
+.contentLinks a {
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+    background: rgb(83, 212, 83);
+    font-size: 2rem;
+    /* display: inline-block; */
+    margin: 1rem;
+    padding: .5rem;
+    border-radius: .4rem;
+    /* box-sizing: 1rem; */
+    transition: .2s linear;
+}
+
+.contentLinks a:hover {
+    background: rgb(69, 235, 69);
+    color: black;
+
+}
+
+
 /* main */
 
-main{
+main {
     /* height: 100%; */
     /* background: red; */
     display: flex;
@@ -29,7 +54,9 @@ main{
     justify-content: space-around;
     align-items: center;
 }
-main a, main>div{
+
+main a,
+main>div {
     /* all:default; */
     display: inline-block;
     height: 24rem;
@@ -41,52 +68,57 @@ main a, main>div{
     position: relative;
     overflow: hidden;
 }
-main .map img{
+
+main .map img {
     height: 100%;
     width: 100%;
-    background: url('./img.jpg');
+    background: url('./public-imgs/img.jpg');
     background-size: contain;
     background-position: center;
     /* height: 5rem; */
     /* width: 4rem; */
 }
-main .title{
+
+main .title {
     color: black;
     font-size: 4rem;
     background: rgb(83, 185, 83);
     line-height: normal;
     position: absolute;
-    top:50%;
+    top: 50%;
     right: 50%;
     transform: translate(50%, 50%);
 }
-main>*{
-    box-shadow: 2px 2px  rgb(83, 185, 83);
+
+main>* {
+    box-shadow: 2px 2px rgb(83, 185, 83);
     transition: .1s linear;
 }
-main>*:hover{
-    box-shadow: 4px 4px  rgb(83, 185, 83);
+
+main>*:hover {
+    box-shadow: 4px 4px rgb(83, 185, 83);
 }
 
-.map-statics .counter{
+.map-statics .counter {
     display: flex;
     padding: 1rem;
     justify-content: space-around;
     background: red;
 }
-.map-statics img{
+
+.map-statics img {
     /* width: 3rem; */
     height: 3rem;
 }
 
 
 /* footer */
-footer{
+footer {
     height: 20vh;
     background: rgb(83, 185, 83);
 }
 
-.contact{
+.contact {
     height: 90%;
     width: 40%;
     background: white;
@@ -94,7 +126,8 @@ footer{
     flex-direction: column;
     justify-content: space-around;
 }
-.contact img{
+
+.contact img {
     height: 2rem;
     width: 2rem;
 }
@@ -103,7 +136,12 @@ footer{
 
 /* elements */
 
-body{
+body {
     height: 100vh;
     margin: 0%;
 }
+
+
+
+
+
