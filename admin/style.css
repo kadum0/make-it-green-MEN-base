@@ -20,9 +20,28 @@ main div{
     margin: .5rem;
     width: 80vw;
     background: red;
+    background: #141414;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
 }
 main div input{
     font-size: 1.5rem;
+}
+.send{
+    background: #68C451;
+    font-size: 2rem;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    transition: .2s linear;
+    /* font-family: enfont; */
+}
+
+.send:hover{
+    background: #87f06d;
 }
 
 /* footer */
@@ -33,5 +52,24 @@ main div input{
 /* absolute elements */
 body{
     margin: 0%;
+}
+body *{
+    font-family: enfont;
+}
+
+
+
+@font-face {
+    /* font-family: "enfont"; */
+    font-family: enfont;
+    src: url('./fonts/en/TradeGothicLTStd-BdCn20.woff');
+    /* src: url('../public/fonts/en/TradeGothicLTStd-BdCn20.woff'); */
+}
+
+
+@font-face {
+    /* font-family: "enfont"; */
+    font-family: senfont;
+    src: url('./fonts/en/TradeGothicLTStd-Cn18.woff');
 }
 

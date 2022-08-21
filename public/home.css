@@ -95,15 +95,15 @@ main a{
     width: 80%;
     padding: 0 1rem;
     display: flex;
-    justify-content: start;
+    justify-content: space-around;
     align-items: center;
 }
 .blog{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    justify-content: center;
+    /* justify-content: space-around; */
+    /* justify-content: center; */
 }
 
 .article, .donor{
@@ -116,10 +116,11 @@ main a{
     align-items: center;
     padding: .3rem;
     overflow: hidden;
+    font-family: senfont;
 }
 .article img{
     /* height: 6rem; */
-    background: url('./public-imgs/articles/Post2.png');
+    /* background: url('./public-imgs/articles/Post2.png'); */
     height: 40%;
     min-height: 8rem;
     width: 100%;
@@ -134,7 +135,7 @@ main a{
     
 } */
 .donors img{
-    background: url('./public-imgs/donors/2022-08-16T19-30-32.324Zmakeitgreen-logo.jpg');
+    /* background: url('./public-imgs/donors/2022-08-16T19-30-32.324Zmakeitgreen-logo.jpg'); */
     /* height: 40%; */
     min-height: 8rem;
     width: 100%;
