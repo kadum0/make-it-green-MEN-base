@@ -186,14 +186,40 @@ app.post('/makeArticle', (req, res, next)=>{articleLink = null, next()}, artilce
 
 })
 
-app.get('/blog/:article', async (req, res)=>{
-    console.log(req.params.article)
-    let tosearch = req.params.article
-    // req.params.article = req.params.article.replace(' ', '-')
-    // res.send('./article.html')
-    // res.sendfile('./article.html')
+// app.get('/blog/:article', async (req, res)=>{
+//     console.log(req.params.article)
+//     let tosearch = req.params.article
+//     // req.params.article = req.params.article.replace(' ', '-')
+//     // res.send('./article.html')
+//     // res.sendfile('./article.html')
 
-    // res.send({'received from': req.params.article})
+//     // res.send({'received from': req.params.article})
+//     let found 
+
+//     mongodb.connect(process.env.MAKE, async (err, client)=>{
+//         let dbb = client.db()
+
+//         found = await dbb.collection("articles").findOne({title:tosearch})
+//         // .find(e=>e.title == req.params.article)
+//         console.log(found)
+
+// let articleData = {}
+// articleData.title = found.title
+// articleData.img = found.img
+// articleData.content = found.content
+
+// // console.log(title)
+
+//     res.render('article.ejs',{articleData})
+
+// })
+// })
+
+
+app.get('/blog/:article', async (req, res)=>{
+
+        console.log(req.params.article)
+    let tosearch = req.params.article
     let found 
 
     mongodb.connect(process.env.MAKE, async (err, client)=>{
@@ -201,7 +227,8 @@ app.get('/blog/:article', async (req, res)=>{
 
         found = await dbb.collection("articles").findOne({title:tosearch})
         // .find(e=>e.title == req.params.article)
-        console.log(found)
+        console.log('found is ',found)
+        console.log('found title is', found.title)
 
 let articleData = {}
 articleData.title = found.title
@@ -209,16 +236,40 @@ articleData.img = found.img
 articleData.content = found.content
 
 // console.log(title)
+    res.send(`
+    <!DOCTYPE html>
+<html lang="en">
 
-    res.render('article.ejs',{articleData})
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artcile</title>
+    <link rel="stylesheet" href="../article.css">
+</head>
+
+<body>
+
+    <header></header>
+    <main data-v='${articleData}'>
+        <h2 class="title">title</h2>
+        <img alt="">
+        <div class="content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla aspernatur atque ipsam
+            officiis praesentium molestiae ducimus adipisci deleniti doloremque, omnis aut perferendis tempore
+            consectetur fugit reiciendis. Incidunt, fuga velit repudiandae, dolorem omnis, sunt animi vitae voluptatum
+            labore dignissimos excepturi nisi?</div>
+    </main>
+    <footer></footer>
+    <script>export let articleData = ${articleData}</script>
+    <script src="../article.js"></script>
+</body>
+
+</html>`)
+    // res.render('article.ejs',{articleData})
+})
 
 })
-})
 
-app.get('/testarticle', (req, res)=>{
-    console.log('from article template')
-    // res.send()
-})
 
 ////donors; 
 app.get("/donors", async (req, res)=>{
