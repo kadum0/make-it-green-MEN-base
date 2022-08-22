@@ -105,14 +105,10 @@ document.querySelector(".displayLines").addEventListener("click", (e)=>{
         hideLines(pathObjects)
         // e.target.style.background = "#27f060"
         e.target.style.background = '#68C451'
-
         // e.target.parentElement.lastElementChild.remove()
         document.querySelector(".suggest").style.display = "none"
-
     }
 })
-
-
 
 
 // ui-js-data; 
@@ -163,9 +159,11 @@ window.onload= async ()=>{
     document.querySelector("#greenPinCounter").textContent = mapStatics.green.length
     document.querySelector("#redPinCounter").textContent = mapStatics.red.length
     let routesNumber = mapStatics.routes.filter(e=>typeof e.path[0]!="number")
-    console.log(routesNumber)
-    // mapStatics.routes.filter(e=>e.path.length>1)
     document.querySelector("#routes").textContent = routesNumber.length
+    /////direct deploy 
+    displayLines(mapStatics.routes)
+    document.querySelector(".displayLines").classList.add('add')
+    document.querySelector(".displayLines").background = "#ff2a2a"
 
 
     // get map api key
