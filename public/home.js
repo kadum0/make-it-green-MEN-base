@@ -31,6 +31,89 @@
 
 ///ui-js
 
+let pathObjects = []
+let pathList 
+
+/////////public line; stuff 
+
+function displayLines (pd){
+    console.log("get routes; ", pd)
+    
+    Object.values(pd).forEach(e=>console.log(e.path))
+
+    ///deploy them; store
+    Object.values(pd).forEach(e => {
+
+        let obje 
+
+        if(typeof e.path[0]!="number"){
+
+            console.log(e.path)
+            obje = L.polyline(e.path, {
+                // color: "red",
+            }).addTo(map)
+            // oldObjects.push(pathId) //dont need old objects
+            // pathob.addEventListener("click", (e) => console.log(e.target))
+        } else { ////labels part 
+            console.log("....label....")
+
+            obje = L.circle(e.path, {
+                fillColor: '#3388FF',
+                fillOpacity: 0.8,
+                radius: 100
+            }).addTo(map)
+        }
+
+        pathObjects.push(obje)
+        obje.addEventListener("mouseover", (e)=>{
+            pathObjects.forEach(e=>{e.setStyle({color: "#3388FF", fillColor: "#3388FF"})})
+            let i = e.target
+            map.removeLayer(e.target)
+            i.addTo(map)
+            pathObjects.push(i)
+            i.setStyle({color:"rgb(223, 39, 39)", fillColor: "rgb(223, 39, 39)"})
+        })
+        obje.addEventListener("click", (e)=>{
+            pathObjects.forEach(e=>{e.setStyle({color: "#3388FF", fillColor: "#3388FF"})})
+            let i = e.target
+            map.removeLayer(e.target)
+            i.addTo(map)
+            pathObjects.push(i)
+            i.setStyle({color:"rgb(223, 39, 39)", fillColor: "rgb(223, 39, 39)"})
+        })
+    })
+
+
+    
+}
+function hideLines(pd){
+    pd.forEach(e=>{
+        map.removeLayer(e)
+    })
+}
+//////button that shows the lines 
+document.querySelector(".displayLines").addEventListener("click", (e)=>{
+    console.log(e.target.classList)
+
+    e.target.classList.toggle("add")
+    if(e.target.classList.contains("add")){
+        e.target.style.background = "#ff2a2a"
+        displayLines(pathList)
+        // e.target.parentElement.append(suggetstMakeLinesBtn)
+        document.querySelector(".suggest").style.display = "block"
+    }else{
+        hideLines(pathObjects)
+        // e.target.style.background = "#27f060"
+        e.target.style.background = '#68C451'
+
+        // e.target.parentElement.lastElementChild.remove()
+        document.querySelector(".suggest").style.display = "none"
+
+    }
+})
+
+
+
 
 // ui-js-data; 
 // initialize the map; 
@@ -65,6 +148,8 @@ window.onload= async ()=>{
         }).bindPopup(`<h3> ❤المساهمين</h3> ${e.aNames + e.bName}`).addTo(map)
     })
 
+    pathList = mapStatics.routes
+
     // insert yellow 
     // Object.values(mapStatics.yellow).forEach(e=>{
     //     // L.marker(e.coords)
@@ -74,9 +159,13 @@ window.onload= async ()=>{
     //     }).bindPopup(`<h3> ❤المساهمين</h3> ${e.aNames}`).addTo(map)
     // })
 
+
     document.querySelector("#greenPinCounter").textContent = mapStatics.green.length
     document.querySelector("#redPinCounter").textContent = mapStatics.red.length
-
+    let routesNumber = mapStatics.routes.filter(e=>typeof e.path[0]!="number")
+    console.log(routesNumber)
+    // mapStatics.routes.filter(e=>e.path.length>1)
+    document.querySelector("#routes").textContent = routesNumber.length
 
 
     // get map api key

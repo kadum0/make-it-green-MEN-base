@@ -129,20 +129,33 @@ limits: {fileSize: 1024 * 1024},
 
 
 /////get map statics 
-app.get("/mapStatics", (req, res)=>{
+app.get("/mapStatics", async (req, res)=>{
 
+        let object = {}
 
     /////db; 
     mongodb.connect(process.env.MAP, async (err, client)=>{
 
-        let object = {}
 
         let dbb = client.db()
         object.green = await dbb.collection('con-finished').find().toArray()
         object.red = await dbb.collection('con-unfinished').find().toArray()
-        console.log(object)
-        res.send(object)
-})
+
+        mongodb.connect(process.env.ROUTES, async (err, client)=>{
+            let dbb = client.db()
+            object.routes = await dbb.collection('confirmed').find().toArray()
+
+            console.log(object)
+            res.send(object)
+
+
+        })
+
+
+    })
+
+
+
 })
 
 

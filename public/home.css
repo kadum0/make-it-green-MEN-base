@@ -85,6 +85,20 @@ main a{
     /* border: 2px #72B959 solid; */
     border: 2px #68C451 solid;
 }
+
+.displayLines{
+    padding: .3rem;
+    font-size: 1.3rem;
+    border: none;
+    background: #68C451;
+    cursor: pointer;
+    border-radius: .3rem;
+    transition: .1s linear;
+}
+.displayLines:hover{
+    background: #6bfc47;
+}
+
 .samples{
     background: #141414;
     height: 100%;
@@ -93,6 +107,9 @@ main a{
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+.samples>p{
+    color: white;
 }
 .blog{
     display: flex;
