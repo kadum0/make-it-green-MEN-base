@@ -6,8 +6,6 @@
 header,
 footer {
     height: 15vh;
-    /* background: rgb(83, 185, 83); */
-    /* background: #81B76F; */
     background: #68C451;
     display: flex;
     justify-content: space-between;
@@ -35,10 +33,8 @@ main{
 }
 
 main>div{
-    height: 40vh;
+    height: 50vh;
     width: 100vw;
-    /* background: rgb(36, 36, 36); */
-    /* background: #141414; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -102,8 +98,6 @@ main a{
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: space-around; */
-    /* justify-content: center; */
 }
 
 .article, .donor{
@@ -130,13 +124,10 @@ main a{
 .donors{
     
 }
-/* .donor{
-    background: white;
-    
-} */
+.donor{
+}
+
 .donors img{
-    /* background: url('./public-imgs/donors/2022-08-16T19-30-32.324Zmakeitgreen-logo.jpg'); */
-    /* height: 40%; */
     min-height: 8rem;
     width: 100%;
     background-position: center;
@@ -146,13 +137,19 @@ main a{
     line-height: 0%;
 }
 
+.samples>a, .samples>div{
+    box-shadow: 4px 4px 0px 0px #68C451;
+    transition: .1s linear;
+}
+.samples>a:hover, .samples>div:hover{
+    box-shadow: 8px 8px 0px 0px #68C451;
+    
+}
 
 /* footer */
 
 footer {
     height: 20vh;
-    /* background: rgb(83, 185, 83); */
-    /* background: #81B76F; */
     background: #68C451;
 }
 
@@ -180,10 +177,9 @@ footer {
 
 .contentLinks a {
     text-decoration: none;
-    color: rgb(48, 48, 48);
-    background: rgb(83, 212, 83);
+    background: #4d883e;
+    color: white;
     font-size: 2rem;
-    /* display: inline-block; */
     margin: 1rem;
     padding: .5rem;
     border-radius: .4rem;
@@ -192,9 +188,7 @@ footer {
 }
 
 .contentLinks a:hover {
-    background: rgb(69, 235, 69);
-    color: black;
-
+    background: #292e27;
 }
 
 /* shared */

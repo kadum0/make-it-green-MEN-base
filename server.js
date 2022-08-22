@@ -91,7 +91,8 @@ app.post("/checkmode", (req, res)=>{
 ////multer; article 
 ///storing paln 
     let articelStoring = multer.diskStorage({
-        destination: './public/articles',
+        // destination: './public/articles',
+        destination: './articles',
         filename: async (req, file, cb)=>{
             console.log(file)
             articleLink = await new Date().toISOString().replace(/:/g, '-') +file.originalname.replaceAll(" ","")
@@ -100,16 +101,17 @@ app.post("/checkmode", (req, res)=>{
     })
 
 ///filter 
+
 /// general plan
 let artilceGeneral = multer({
     storage: articelStoring, 
-    limits: {fileSize: 1024 * 1024}, 
+    // limits: {fileSize: 1024 * 1024}, 
     // fileFilter: fileFilter
 })
 
 /////multer; donor; 
 let donorStoring = multer.diskStorage({
-    destination: './public/donors',
+    destination: './donors',
     filename: async (req, file, cb)=>{
         console.log(file)
         donorLogoLink = await new Date().toISOString().replace(/:/g, '-') +file.originalname.replaceAll(" ","")
@@ -166,8 +168,8 @@ app.post('/makeArticle', (req, res, next)=>{articleLink = null, next()}, artilce
         ////check if valid data; 
         if(typeof req.body.articleTitle == 'string' && typeof req.body.articleContent == 'string'){
             // cloudinary
-            await cloudinary.v2.uploader.upload("./public/articles/" + articleLink, {folder: 'make-it-green/article/'})
-            .then(result=> articleLink = result.secure_url)
+            await cloudinary.v2.uploader.upload("./articles/" + articleLink, {folder: 'make-it-green/article/'})
+            .then(result=> articleLink = result.secure_url).catch((err)=>console.log(err.message))
 
             ////db;
             mongodb.connect(process.env.MAKE, async (err, client)=>{
@@ -248,7 +250,7 @@ app.post("/makeDonor", (req, res, next)=>{donorLogoLink = null, next()}, donorGe
         // await cloudinary.v2.uploader.upload("./public/donors/" + donorLogoLink,
         // {folder: 'samples/'}, result=> donorLogoLink = result.secure_url)
         
-        await cloudinary.v2.uploader.upload("./public/donors/" + donorLogoLink, {folder: 'make-it-green/donors/'})
+        await cloudinary.v2.uploader.upload("./donors/" + donorLogoLink, {folder: 'make-it-green/donors/'})
         .then(result=> donorLogoLink = result.secure_url)
 
                 mongodb.connect(process.env.MAKE, async (err, client)=>{
