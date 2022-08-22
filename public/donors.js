@@ -13,6 +13,8 @@ window.onload = async ()=>{
     ////deploy; 
     // ([...donorName]).forEach(e=>console.log(e.donorName))
     // Object.values(donors).forEach(e=>console.log(e.donorName))
+    
+    document.querySelector('#donors').innerHTML = ''
 
     Object.values(donors).forEach(donor=>{
         console.log(donor)
@@ -22,7 +24,6 @@ window.onload = async ()=>{
             <div class="donor">
                 <h3 class="name">${donor.donorName}</h3>
                 <img src="${donor.logo}" alt="">
-                <div class="desc">this party did ....</div>
             </div>
         </a>
 `
